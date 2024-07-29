@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BAC5B37C-BE84-47CA-B0E7-BBAD56FFD81E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{11C91C81-C9DF-4762-BD46-5488A1575A68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "src\DataAccess\DataAccess.csproj", "{33608C62-F9EC-4889-B160-A67AA5023F12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobNotesAPI", "src\JobNotesAPI\JobNotesAPI.csproj", "{2A4A1C66-6AA0-4997-BEB9-DC4A6ECD0EAF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobServiceTests", "tests\JobServiceTests\JobServiceTests.csproj", "{5B9F0641-85A1-4F1B-BAD8-502769CA9341}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthControllerTests", "tests\AuthControllerTests\AuthControllerTests.csproj", "{9212571B-7250-489C-9BF2-965A1030D232}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33608C62-F9EC-4889-B160-A67AA5023F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33608C62-F9EC-4889-B160-A67AA5023F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33608C62-F9EC-4889-B160-A67AA5023F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33608C62-F9EC-4889-B160-A67AA5023F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4A1C66-6AA0-4997-BEB9-DC4A6ECD0EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4A1C66-6AA0-4997-BEB9-DC4A6ECD0EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4A1C66-6AA0-4997-BEB9-DC4A6ECD0EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4A1C66-6AA0-4997-BEB9-DC4A6ECD0EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B9F0641-85A1-4F1B-BAD8-502769CA9341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B9F0641-85A1-4F1B-BAD8-502769CA9341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B9F0641-85A1-4F1B-BAD8-502769CA9341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B9F0641-85A1-4F1B-BAD8-502769CA9341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9212571B-7250-489C-9BF2-965A1030D232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9212571B-7250-489C-9BF2-965A1030D232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9212571B-7250-489C-9BF2-965A1030D232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9212571B-7250-489C-9BF2-965A1030D232}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33608C62-F9EC-4889-B160-A67AA5023F12} = {BAC5B37C-BE84-47CA-B0E7-BBAD56FFD81E}
+		{2A4A1C66-6AA0-4997-BEB9-DC4A6ECD0EAF} = {BAC5B37C-BE84-47CA-B0E7-BBAD56FFD81E}
+		{5B9F0641-85A1-4F1B-BAD8-502769CA9341} = {11C91C81-C9DF-4762-BD46-5488A1575A68}
+		{9212571B-7250-489C-9BF2-965A1030D232} = {11C91C81-C9DF-4762-BD46-5488A1575A68}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D22D75DC-DA9B-4586-AA01-B2DDFF54E054}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: geodetapp_mssql
+    environment:
+      SA_PASSWORD: ${SA_PASSWORD}
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssqldata:/var/opt/mssql
+
+  jobnotesapi:
+    build: 
+      context: .
+      dockerfile: src/JobNotesAPI/Dockerfile
+    container_name: geodetapp_jobnotesapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: ${CONNECTION_STRING}
+      AUTH_USERNAME: ${AUTH_USERNAME}
+      AUTH_PASSWORD: ${AUTH_PASSWORD}
+      JWT_KEY: ${JWT_KEY}
+    ports:
+      - "5000:80"
+    depends_on:
+      - mssql
+
+volumes:
+  mssqldata:
+
+env_file:
+  - .env
