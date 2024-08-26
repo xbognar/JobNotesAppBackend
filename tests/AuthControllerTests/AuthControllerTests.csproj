@@ -21,8 +21,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\..\src\JobNotesAPI\JobNotesAPI.csproj" />
-    <ProjectReference Include="..\src\DataAccess\DataAccess.csproj" />
-    <ProjectReference Include="..\src\JobNotesAPI\JobNotesAPI.csproj" />
   </ItemGroup>
 
   <ItemGroup>

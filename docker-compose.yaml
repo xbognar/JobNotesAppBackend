@@ -28,7 +28,7 @@ services:
     depends_on:
       - mssql
     env_file:
-      - .env  # Moved under the jobnotesapi service
+      - .env  
 
 volumes:
   mssqldata:
