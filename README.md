@@ -6,7 +6,7 @@ The Job Notes App API is designed to manage job notes, including tasks, clients,
 ## Technologies Used
 
 - **Programming Language:** C#
-- **Framework:** .NET 6.0
+- **Framework:** .NET 8.0
 - **Database:** MSSQL
 - **ORM:** Entity Framework Core
 - **Authentication:** JWT (JSON Web Tokens)
