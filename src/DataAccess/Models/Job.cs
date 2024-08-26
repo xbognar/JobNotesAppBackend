@@ -7,9 +7,9 @@
 		
 		public int SerialNumber { get; set; } // P.C.
 		
-		public string JobNumber { get; set; } // Cislo Zakazky
+		public string? JobNumber { get; set; } // Cislo Zakazky
 		
-		public string Location { get; set; } // Miesto
+		public string? Location { get; set; } // Miesto
 		
 		public string? ClientName { get; set; } // Meno
 		

@@ -9,14 +9,17 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Read connection string from environment variable
+var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+
+// Add services to the container with connection string from environment variable
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+	options.UseSqlServer(connectionString));
 
 // Retrieve sensitive configuration from environment variables
 var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY");
-var loginUsername = Environment.GetEnvironmentVariable("LOGIN_USERNAME");
-var loginPassword = Environment.GetEnvironmentVariable("LOGIN_PASSWORD");
+var loginUsername = Environment.GetEnvironmentVariable("AUTH_USERNAME");
+var loginPassword = Environment.GetEnvironmentVariable("AUTH_PASSWORD");
 
 // Inject services
 builder.Services.AddScoped<IJobService, JobService>();
@@ -39,7 +42,8 @@ builder.Services.AddAuthentication(options =>
 	};
 });
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(); 
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
