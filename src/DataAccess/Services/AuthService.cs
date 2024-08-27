@@ -35,7 +35,7 @@ namespace DataAccess.Services
 				{
 					new Claim(ClaimTypes.Name, username)
 				}),
-				Expires = DateTime.UtcNow.AddDays(7),
+				Expires = DateTime.UtcNow.AddHours(2),
 				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
 			};
 

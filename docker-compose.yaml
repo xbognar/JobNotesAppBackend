@@ -24,11 +24,11 @@ services:
       AUTH_PASSWORD: ${AUTH_PASSWORD}
       JWT_KEY: ${JWT_KEY}
     ports:
-      - "5000:80"
+      - "5000:8080"
     depends_on:
       - mssql
     env_file:
-      - .env  
+      - .env   
 
 volumes:
   mssqldata:
