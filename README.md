@@ -23,6 +23,7 @@ The Job Notes App API is designed to manage job notes, including tasks, clients,
 - **Global Error Handling:** Centralized handling of exceptions.
 - **Integration Tests:** Ensuring the API endpoints function correctly.
 - **Unit Tests:** Testing the core logic and services.
+- **Automated Scripts:** Simplified start and stop scripts for running the application.
 
 ## Getting Started
 
@@ -30,6 +31,7 @@ The Job Notes App API is designed to manage job notes, including tasks, clients,
 
 - [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Docker](https://www.docker.com/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) (Must be installed and running on the user's PC)
 - [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
 ## Project Structure
@@ -65,10 +67,18 @@ JobNotesAppBackend/
 │   │   ├── JobServiceTests.cs
 ├── Dockerfile
 ├── docker-compose.yml
-└── README.md
+├── .env
+├── README.md
+├── START.bat
+└── STOP.bat
 ```
 
-## Installation
+### Script Details
+
+- **START.bat:** This script starts Docker Desktop (if not already running), navigates to the project directory, and starts the Docker containers using Docker Compose. It allows the user to run the application with a single click.
+- **STOP.bat:** This script stops all running Docker containers related to the application and stops Docker Desktop. It provides a clean and easy way to shut down the application.
+
+### Installation
 
 1. **Clone the repository:**
 
@@ -87,25 +97,29 @@ JobNotesAppBackend/
    JWT_KEY=your_very_secure_jwt_key
    ```
 
-3. **Build and run the Docker containers:**
+3. **Run the application using the START script:**
 
-   Use the provided start script to build and run Docker containers. This script will automatically start Docker Desktop, navigate to the correct directory, and run the Docker Compose commands.
+   Simply double-click the `START.bat` file. This will automatically start Docker Desktop (if not running), build and run the containers, and set up the application environment.
 
-   ```bash
-   ./start-jobnotesapp.ps1
-   ```
+4. **Apply migrations:**
+
+   Migrations will be applied automatically when the application starts.
 
 ## Usage
 
 1. **Starting the API:**
 
-   The API will be available at `http://localhost:5000` after running the start script.
+   The API will be available at `http://localhost:5000` after running the `START.bat` script.
 
-2. **Accessing Swagger:**
+2. **Stopping the API:**
+
+   To stop the API and Docker containers, double-click the `STOP.bat` file. This will shut down the containers and stop Docker Desktop.
+
+3. **Accessing Swagger:**
 
    Swagger documentation will be available at `http://localhost:5000/swagger`.
 
-3. **Endpoints:**
+4. **Endpoints:**
 
    - **Authentication:**
      - `POST /api/auth/login`
@@ -120,23 +134,21 @@ JobNotesAppBackend/
      - `GET /api/jobs/count/year/{year}/month/{month}`
      - `GET /api/jobs/search?location=example&clientName=example&notes=example`
 
-## Shutting Down
+## JWT Authentication
 
-Use the provided stop script to stop all running containers and Docker Desktop. This script will ensure that all services are properly shut down.
-
-   ```bash
-   ./stop-jobnotesapp.ps1
-   ```
+The application uses JWT (JSON Web Tokens) for secure authentication. Users must log in using their credentials to receive a JWT token, which must be included in the Authorization header (`Bearer <token>`) for all subsequent requests. The token is valid for 2 hours, ensuring a balance between security and usability.
 
 ## Testing
 
-### Run Unit Tests:
+### Run Unit and Integration Tests:
 
-Run the following commands to execute the unit tests:
+Run the following commands to execute the tests:
 
 ```bash
 dotnet test tests/AuthControllerTests/
 dotnet test tests/JobServiceTests/
 ```
 
-These tests include scenarios for user authentication, job retrieval, creation, updating, and deletion, ensuring that all critical functionalities work as expected.
+- **Mocking:** The tests use Moq for mocking dependencies, ensuring that the controllers and services are tested in isolation.
+- **Endpoint Testing:** Each endpoint is tested to confirm it handles both valid and invalid inputs correctly, verifying authentication, authorization, and business logic.
+
