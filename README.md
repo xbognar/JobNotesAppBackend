@@ -89,19 +89,17 @@ JobNotesAppBackend/
 
 3. **Build and run the Docker containers:**
 
+   Use the provided start script to build and run Docker containers. This script will automatically start Docker Desktop, navigate to the correct directory, and run the Docker Compose commands.
+
    ```bash
-   docker-compose up -d
+   ./start-jobnotesapp.ps1
    ```
-
-4. **Apply migrations:**
-
-   Migrations will be applied automatically when the application starts.
 
 ## Usage
 
 1. **Starting the API:**
 
-   The API will be available at `http://localhost:5000` after running `docker-compose up`.
+   The API will be available at `http://localhost:5000` after running the start script.
 
 2. **Accessing Swagger:**
 
@@ -121,6 +119,14 @@ JobNotesAppBackend/
      - `GET /api/jobs/count/year/{year}`
      - `GET /api/jobs/count/year/{year}/month/{month}`
      - `GET /api/jobs/search?location=example&clientName=example&notes=example`
+
+## Shutting Down
+
+Use the provided stop script to stop all running containers and Docker Desktop. This script will ensure that all services are properly shut down.
+
+   ```bash
+   ./stop-jobnotesapp.ps1
+   ```
 
 ## Testing
 
