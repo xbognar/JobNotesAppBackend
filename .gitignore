@@ -10,10 +10,6 @@
 *.userosscache
 *.sln.docstates
 
-# Ignore original batch scripts
-START.bat
-STOPwithoutAzure.bat
-
 # Environment and configuration files
 .env
 
