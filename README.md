@@ -83,8 +83,8 @@ JobNotesAppBackend/
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/job-notes-app-api.git
-   cd job-notes-app-api
+   git clone https://github.com/xbognar/JobNotesAppBackend.git
+   cd JobNotesAppBackend
    ```
 
 2. **Create a `.env` file in the root directory:**
