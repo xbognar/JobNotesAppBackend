@@ -12,7 +12,6 @@
 
 # Ignore original batch scripts
 START.bat
-STOP.bat
 STOPwithoutAzure.bat
 
 # Environment and configuration files
