@@ -69,14 +69,14 @@ JobNotesAppBackend/
 ├── docker-compose.yml
 ├── .env
 ├── README.md
-├── Start.bat
-└── Stop.bat
+├── StartBE.bat
+└── StopBE.bat
 ```
 
 ### Script Details
 
-- **Start.bat:** This script starts Docker Desktop (if not already running), navigates to the project directory, and starts the Docker containers using Docker Compose. It allows the user to run the application with a single click.
-- **Stop.bat:** This script stops all running Docker containers related to the application and stops Docker Desktop. It provides a clean and easy way to shut down the application.
+- **StartBE.bat:** This script starts Docker Desktop (if not already running), navigates to the project directory, and starts the Docker containers using Docker Compose. It allows the user to run the application with a single click.
+- **StopBE.bat:** This script stops all running Docker containers related to the application and stops Docker Desktop. It provides a clean and easy way to shut down the application.
 
 ### Installation
 
