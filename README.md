@@ -18,7 +18,7 @@ The Job Notes App API is designed to manage job notes, including tasks, clients,
 
 - **User Authentication:** Secure login with JWT tokens.
 - **Job Management:** CRUD operations for jobs.
-- **Job Search:** Ability to search jobs by location, client name, or notes.
+- **Job Search:** Ability to search jobs by location.
 - **Job Statistics:** Retrieve job counts by year and month.
 - **Global Error Handling:** Centralized handling of exceptions.
 - **Integration Tests:** Ensuring the API endpoints function correctly.
@@ -69,14 +69,14 @@ JobNotesAppBackend/
 ├── docker-compose.yml
 ├── .env
 ├── README.md
-├── START.bat
-└── STOP.bat
+├── Start.bat
+└── Stop.bat
 ```
 
 ### Script Details
 
-- **START.bat:** This script starts Docker Desktop (if not already running), navigates to the project directory, and starts the Docker containers using Docker Compose. It allows the user to run the application with a single click.
-- **STOP.bat:** This script stops all running Docker containers related to the application and stops Docker Desktop. It provides a clean and easy way to shut down the application.
+- **Start.bat:** This script starts Docker Desktop (if not already running), navigates to the project directory, and starts the Docker containers using Docker Compose. It allows the user to run the application with a single click.
+- **Stop.bat:** This script stops all running Docker containers related to the application and stops Docker Desktop. It provides a clean and easy way to shut down the application.
 
 ### Installation
 
