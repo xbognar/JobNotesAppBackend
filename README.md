@@ -140,15 +140,26 @@ The application uses JWT (JSON Web Tokens) for secure authentication. Users must
 
 ## Testing
 
-### Run Unit and Integration Tests:
+### Unit Tests
 
-Run the following commands to execute the tests:
+- **Location**: `tests/UnitTests/`
+- **Scope**:  
+  - **Services**: Mocks `ApplicationDbContext` to verify logic in isolation.  
+  - **Controllers**: Mocks services to ensure correct responses like `Ok()`, `NotFound()`, `CreatedAtAction()`, etc.
+- **Run**:
+  ```bash
+  dotnet test tests/UnitTests/UnitTests.csproj
+  ```
 
-```bash
-dotnet test tests/AuthControllerTests/
-dotnet test tests/JobServiceTests/
-```
+### Integration Tests
 
-- **Mocking:** The tests use Moq for mocking dependencies, ensuring that the controllers and services are tested in isolation.
-- **Endpoint Testing:** Each endpoint is tested to confirm it handles both valid and invalid inputs correctly, verifying authentication, authorization, and business logic.
+- **Location**: `tests/IntegrationTests/`
+- **Scope**:  
+  - Validates end-to-end functionality, including API endpoints and database integration.  
+  - Uses `IntegrationTestFixture` for shared setup and teardown.
+  - Employs `SeedDataHelper` to populate test database with necessary data.
+- **Run**:
+  ```bash
+  dotnet test tests/IntegrationTests/IntegrationTests.csproj
+  ```
 
