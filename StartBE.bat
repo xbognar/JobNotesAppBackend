@@ -28,3 +28,4 @@ echo Starting Docker services...
 docker-compose up --build -d
 
 echo Application has been successfully started.
+

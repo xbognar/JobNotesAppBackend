@@ -3,21 +3,21 @@
 	public class Job
 	{
 		
-		public int Id { get; set; } // Primary Key
+		public int Id { get; set; }
 		
-		public int SerialNumber { get; set; } // P.C.
+		public int SerialNumber { get; set; }
 		
-		public string? JobNumber { get; set; } // Cislo Zakazky
+		public string? JobNumber { get; set; }
 		
-		public string? Location { get; set; } // Miesto
+		public string? Location { get; set; }
 		
-		public string? ClientName { get; set; } // Meno
+		public string? ClientName { get; set; }
 		
-		public DateTime? MeasurementDate { get; set; } // Datum merania
+		public DateTime? MeasurementDate { get; set; }
 		
-		public string? Notes { get; set; } // Poznamka
+		public string? Notes { get; set; }
 		
-		public bool IsCompleted { get; set; } // Task completion status
+		public bool IsCompleted { get; set; }
 	
 	}
 }
