@@ -38,39 +38,68 @@ The Job Notes App API is designed to manage job notes, including tasks, clients,
 
 ```
 JobNotesAppBackend/
-├── src/
-│   ├── JobNotesAPI/
-│   │   ├── Controllers/
-│   │   │   ├── AuthController.cs
-│   │   │   └── JobsController.cs
-│   │   ├── Program.cs
-│   │   ├── JobNotesAPI.csproj
-│   │   ├── appsettings.json
-│   │   └── ...
-│   ├── DataAccess/
-│   │   ├── DataAccess/
-│   │   │   └── ApplicationDbContext.cs
-│   │   ├── Interfaces/
-│   │   │   ├── IAuthService.cs
-│   │   │   └── IJobService.cs
-│   │   ├── Models/
-│   │   │   ├── Job.cs
-│   │   │   └── User.cs
-│   │   ├── Services/
-│   │   │   ├── AuthService.cs
-│   │   │   └── JobService.cs
-│   │   └── DataAccess.csproj
-├── tests/
-│   ├── AuthControllerTests/
-│   │   ├── AuthControllerTests.cs
-│   ├── JobServiceTests/
-│   │   ├── JobServiceTests.cs
-├── Dockerfile
-├── docker-compose.yml
 ├── .env
+├── .gitattributes
+├── .gitignore
+├── docker-compose.yaml
+├── JobNotesApp.sln
 ├── README.md
 ├── StartBE.bat
-└── StopBE.bat
+├── StopBE.bat
+│
+├── .github/
+│   ├── workflows/
+│
+├── docs/
+│   ├── TableRelations.png
+│
+├── src/
+│   ├── DataAccess/
+│   │   ├── DataAccess.csproj
+│   │   ├── ApplicationDbContext.cs
+│   │   ├── Migrations/
+│   │   │   ├── 20240826224017_InitialCreate.cs
+│   │   │   ├── 20240826224017_InitialCreate.Designer.cs
+│   │   │   ├── ApplicationDbContextModelSnapshot.cs
+│   │   ├── Models/
+│   │   │   ├── Job.cs
+│   │   │   ├── User.cs
+│   │   ├── Services/
+│   │   │   ├── AuthService.cs
+│   │   │   ├── JobService.cs
+│   │   ├── Interfaces/
+│   │   │   ├── IAuthService.cs
+│   │   │   ├── IJobService.cs
+│
+│   ├── JobNotesAPI/
+│   │   ├── appsettings.Development.json
+│   │   ├── appsettings.json
+│   │   ├── Dockerfile
+│   │   ├── JobNotesAPI.csproj
+│   │   ├── Program.cs
+│   │   ├── Controllers/
+│   │   │   ├── AuthController.cs
+│   │   │   ├── JobsController.cs
+│
+├── tests/
+│   ├── IntegrationTests/
+│   │   ├── IntegrationTests.csproj
+│   │   ├── Controllers/
+│   │   │   ├── AuthControllerIntegrationTests.cs
+│   │   │   ├── JobsControllerIntegrationTests.cs
+│   │   ├── Dependencies/
+│   │   │   ├── IntegrationTestFixture.cs
+│   │   │   ├── SeedDataHelper.cs
+│   │   │   ├── TestUtilities.cs
+│
+│   ├── UnitTests/
+│   │   ├── UnitTests.csproj
+│   │   ├── Controllers/
+│   │   │   ├── AuthControllerTests.cs
+│   │   │   ├── JobsControllerTests.cs
+│   │   ├── Services/
+│   │   │   ├── AuthServiceTests.cs
+│   │   │   ├── JobServiceTests.cs
 ```
 
 ### Script Details
