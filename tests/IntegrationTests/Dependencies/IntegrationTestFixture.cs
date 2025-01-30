@@ -1,45 +1,42 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using DataAccess.DataAccess;
-using System.Linq;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
+using System;
 
 namespace IntegrationTests.Dependencies
 {
-	public class IntegrationTestFixture : WebApplicationFactory<Program>
+	/// <summary>
+	/// A custom fixture for integration tests.
+	/// Configures environment = "IntegrationTest" so <c>Program.cs</c> can
+	/// use InMemory EF or skip migrations, then seeds test data.
+	/// </summary>
+	public class IntegrationTestFixture : WebApplicationFactory<NoteAPI.Program>
 	{
+		/// <summary>
+		/// Override the CreateHost to set environment variables
+		/// and optionally seed the database.
+		/// </summary>
+		/// <param name="builder">The <see cref="IHostBuilder"/>.</param>
+		/// <returns>The created <see cref="IHost"/>.</returns>
 		protected override IHost CreateHost(IHostBuilder builder)
 		{
-			builder.ConfigureServices(services =>
-			{
-				// Remove the existing DbContext registration (SQL)
-				var descriptor = services.SingleOrDefault(
-					d => d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>));
-				if (descriptor != null)
-					services.Remove(descriptor);
+			builder.UseEnvironment("IntegrationTest");
 
-				// Register InMemory DB
-				services.AddDbContext<ApplicationDbContext>(options =>
-				{
-					options.UseInMemoryDatabase("IntegrationTestDb");
-				});
+			Environment.SetEnvironmentVariable("JWT_KEY", "IntegrationTestKey_Of_32_OrMore_Characters!!!");
+			Environment.SetEnvironmentVariable("AUTH_USERNAME", "testUser");
+			Environment.SetEnvironmentVariable("AUTH_PASSWORD", "testPass");
 
-				// Build the service provider
-				var sp = services.BuildServiceProvider();
+			var host = base.CreateHost(builder);
 
-				// Seed the test data
-				using (var scope = sp.CreateScope())
-				{
-					var scopedServices = scope.ServiceProvider;
-					var db = scopedServices.GetRequiredService<ApplicationDbContext>();
-					db.Database.EnsureCreated();
-					SeedDataHelper.Seed(db);
-				}
-			});
+			using var scope = host.Services.CreateScope();
+			var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-			return base.CreateHost(builder);
+			db.Database.EnsureCreated();
+
+			SeedDataHelper.Seed(db);
+
+			return host;
 		}
 	}
 }
